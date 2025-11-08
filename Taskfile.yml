@@ -1,0 +1,8 @@
+version: '3'
+
+
+gen:go:
+    desc: 'Generate Go code from proto files'
+    cmds:
+      - protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative censor/v1/censor.proto
+      - protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative comment/v1/comment.proto

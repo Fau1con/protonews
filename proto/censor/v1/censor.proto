@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package censor.v1;
+
+option go_package = "github.com/Fau1con/protonews/gen/go/censor/v1;censorv1";
+
+service CensorService {
+    rpc CheckComment(CheckCommentRequest) returns (CheckCommentResponse);
+}
+
+message CheckCommentRequest {
+    string text = 1;
+    string news_id = 2;
+}
+
+message CheckCommentResponse {
+    bool approved = 1;
+    string reason = 2;
+    string filteredComment = 3;
+    map<string,string> details = 4;
+}
